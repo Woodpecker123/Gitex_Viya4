@@ -5,10 +5,11 @@ pipeline {
     KUBECONFIG = '/var/lib/jenkins/admin.conf'
       }
   stages {
-    stage('WP') {
+    stage('Deploy') {
       steps {
-        sh 'kubectl get nodes'
+        sh 'kubectl -n sit apply -f site.yaml'
       }
     }
+    
   }
 }
