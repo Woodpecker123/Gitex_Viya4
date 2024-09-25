@@ -1,12 +1,14 @@
+
 pipeline {
   agent any
+  environment {
+    KUBECONFIG = '/var/lib/jenkins/admin.conf'
+      }
   stages {
-    stage('checkversion') {
+    stage('WP') {
       steps {
-          sh 'python3 --version'
-         
+        sh 'kubectl get nodes'
       }
     }
-  
   }
 }
